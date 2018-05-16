@@ -35,9 +35,7 @@ let g:spacevim_custom_plugins = [
   \ ['prettier/vim-prettier'],
   \ ['mattn/emmet-vim'],
   \ ['mxw/vim-jsx'],
-  \ ['vim-syntastic/syntastic'],
-  \ ['prabirshrestha/async.vim'],
-  \ ['prabirshrestha/vim-lsp'],
+  \ ['w0rp/ale'],
   \ ['nightsense/seagrey']
 \ ]
 
@@ -52,7 +50,7 @@ let g:neomake_vim_enabled_makers = []
 let g:spacevim_lint_on_save = 0
 let g:spacevim_guifont = 'Input\ Mono \Narrow 14'
 let g:spacevim_statusline_separator = 'nil'
-let g:spacevim_colorscheme = 'seagrey-dark'
+let g:spacevim_colorscheme = 'onedark'
 let g:spacevim_colorscheme_bg = 'dark'
 let g:spacevim_realtime_leader_guide = 1
 " let g:spacevim_windows_leader = ','
@@ -80,18 +78,6 @@ endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
 inoremap jj <Esc>
-" LSP
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'jsconfig.json'))},
-        \ 'whitelist': ['typescript'],
-        \ })
-endif
-let g:lsp_signs_enabled = 1         " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-
 " JS stuff
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 100 
@@ -114,14 +100,12 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_shortest_import_path = 1
 
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 " Linting
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
 " formater
 let g:neoformat_try_formatprg = 1
