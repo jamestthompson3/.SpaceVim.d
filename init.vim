@@ -48,7 +48,7 @@ let g:spacevim_enable_os_fileformat_icon = 0
 let g:spacevim_buffer_index_type = 1
 let g:neomake_vim_enabled_makers = []
 let g:spacevim_lint_on_save = 0
-let g:spacevim_guifont = 'Input\ Mono \Narrow 14'
+let g:spacevim_guifont = 'InputMonoNarrow'
 let g:spacevim_statusline_separator = 'nil'
 let g:spacevim_colorscheme = 'onedark'
 let g:spacevim_colorscheme_bg = 'dark'
@@ -100,10 +100,11 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_shortest_import_path = 1
 
+" Linting
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
-" Linting
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
