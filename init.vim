@@ -4,6 +4,7 @@ call SpaceVim#layers#load('incsearch')
 " call SpaceVim#layers#load('lang#go')
 " call SpaceVim#layers#load('lang#haskell')
 call SpaceVim#layers#load('colorscheme')
+call SpaceVim#layers#load('git')
 call SpaceVim#layers#load('lang#typescript')
 call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('lang#python')
@@ -16,12 +17,12 @@ call SpaceVim#layers#load('shell',
   \}
   \)   
 
-call SpaceVim#layers#load('tools#screensaver')
+call SpaceVim#layers#load('tools')
 
 " If there is a particular plugin you don't like, you can define this
 " variable to disable them entirely:
 let g:spacevim_disabled_plugins=[
-\ ['ternjs/tern_for_vim'],
+\ ['tern_for_vim'],
 \ ['maksimr/vim-jsbeautify'],
 \ ]
 
@@ -34,7 +35,6 @@ let g:spacevim_custom_plugins = [
   \ ['prettier/vim-prettier'],
   \ ['mattn/emmet-vim'],
   \ ['mxw/vim-jsx'],
-  \ ['othree/yajs'],
   \ ['w0rp/ale'],
   \ ['mhartington/oceanic-next']
 \ ]
@@ -60,7 +60,36 @@ let g:mta_filetypes = {
 
 " ensure that HTML docuemnts wrap appropriately
 set breakindent
-" UI stuff
+
+""""""""""""" UI stuff """""""""""""""""
+" Focus Aids
+augroup rainbow
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" General UI
 let g:spacevim_colorscheme_bg = 'dark'
 let g:spacevim_guifont = 'InputMonoNarrow'
 let g:spacevim_colorscheme = 'Oceanicnext'
@@ -97,6 +126,7 @@ let g:prettier#config#parser = 'flow'
 " prettier on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js Prettier
+
 " Typescript info
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
@@ -119,10 +149,12 @@ if has('python3')
 endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
-
-
+let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " formater
 let g:neoformat_try_formatprg = 1
+
