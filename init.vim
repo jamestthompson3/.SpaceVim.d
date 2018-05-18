@@ -5,12 +5,20 @@ call SpaceVim#layers#load('incsearch')
 " call SpaceVim#layers#load('lang#haskell')
 call SpaceVim#layers#load('colorscheme')
 call SpaceVim#layers#load('git')
+call SpaceVim#layers#load('denite')
 call SpaceVim#layers#load('lang#typescript')
 call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#markdown')
 call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('lang#xml')
+call SpaceVim#layers#load('lsp',
+    \ {
+    \ 'filetypes' : ['python',
+                   \ 'javascript',
+                   \ ],
+    \ }
+\ )
 call SpaceVim#layers#load('shell', 
   \{
   \'default_position': 'bottom',
@@ -35,6 +43,7 @@ let g:spacevim_custom_plugins = [
   \ ['prettier/vim-prettier'],
   \ ['mattn/emmet-vim'],
   \ ['mxw/vim-jsx'],
+  \ ['wakatime/vim-wakatime'],
   \ ['w0rp/ale'],
   \ ['mhartington/oceanic-next']
 \ ]
@@ -44,7 +53,7 @@ let g:spacevim_enable_debug = 1
 let g:deoplete#auto_complete_delay = 150
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_statusline_display_mode = 1
-let g:spacevim_enable_os_fileformat_icon = 0
+let g:spacevim_enable_os_fileformat_icon = 1 
 let g:spacevim_buffer_index_type = 1
 let g:neomake_vim_enabled_makers = []
 let g:spacevim_lint_on_save = 0
@@ -110,7 +119,7 @@ let g:spacevim_custom_color_palette =  [
 inoremap jj <Esc>
 
 """""""""""""" JS stuff """"""""""""""""""""""
-
+let g:jsx_ext_required = 0
 " max line lengh that prettier will wrap on
 let g:prettier#config#print_width = 100 
 " print semicolons
