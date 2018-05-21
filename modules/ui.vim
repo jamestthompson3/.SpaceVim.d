@@ -11,7 +11,6 @@ function! s:goyo_enter()
   set noshowcmd
   set scrolloff=999
   Limelight
-  " ...
 endfunction
 
 function! s:goyo_leave()
@@ -21,26 +20,25 @@ function! s:goyo_leave()
   set showcmd
   set scrolloff=5
   Limelight!
-  " ...
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " General UI
 let g:spacevim_colorscheme_bg = 'dark'
-let g:spacevim_guifont = 'InputMonoNarrow'
+let g:spacevim_guifont = 'PragmataPro 16'
 let g:spacevim_colorscheme = 'Oceanicnext'
 let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_custom_color_palette =  [
-                \ ['#2c323c', '#98c379', 114, 16],
-                \ ['#abb2bf', '#3b4048', 16, 145],
-                \ ['#abb2bf', '#2c323c', 16, 145],
-                \ ['#2c323c', 16],
-                \ ['#2c323c', '#afd7d7', 114, 152],
-                \ ['#2c323c', '#ff8787', 114, 210],
-                \ ['#2c323c', '#d75f5f', 114, 167],
-                \ ['#2c323c', '#689d6a', 114, 72],
-                \ ['#2c323c', '#8f3f71', 114, 132],
+                \ ['#d8dee9', '#0d61ac', 189, 25],
+                \ ['#ffffff', '#262626', 231, 235],
+                \ ['#ffffff', '#3a3a3a', 231, 237],
+                \ ['#4e4e4e', 239],
+                \ ['#ffffff', '#437019', 231, 22],
+                \ ['#ffffff', '#870000', 231, 88],
+                \ ['#870000', '#000000', 88, 0],
+                \ ['#ffffff', '#689d6a', 231, 72],
+                \ ['#ffffff', '#8f3f71', 231, 132],
                 \ ]
 
 

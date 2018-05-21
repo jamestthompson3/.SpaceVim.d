@@ -2,10 +2,14 @@
 "
 " Prevent ALE from complaining
 let g:ale_emit_conflict_warnings = 0
-
+let s:SYSTEM = SpaceVim#api#import('system')
 " Create function to manage things in a semi-sane way
 
-let g:modules_folder = 'modules\'
+if s:SYSTEM.isWindows
+ let g:modules_folder = 'modules\'
+else
+  let g:modules_folder = 'modules/'
+endif
 
 function! LoadCustomModule( name )
   let script = g:modules_folder .  a:name . ".vim"
@@ -39,10 +43,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
 if executable('vimlint')
-    call add(g:neomake_vim_enabled_makers, 'vimlint') 
+    call add(g:neomake_vim_enabled_makers, 'vimlint')
 endif
 if executable('vint')
-    call add(g:neomake_vim_enabled_makers, 'vint') 
+    call add(g:neomake_vim_enabled_makers, 'vint')
 endif
 if has('python3')
     let g:ctrlp_map = ''
@@ -64,9 +68,8 @@ endfunction
 set statusline=%{LinterStatus()}
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
+let g:spacevim_enabled_ale = 1
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
