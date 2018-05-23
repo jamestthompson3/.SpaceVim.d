@@ -6,7 +6,7 @@ let s:SYSTEM = SpaceVim#api#import('system')
 " Create function to manage things in a semi-sane way
 
 if s:SYSTEM.isWindows
- let g:modules_folder = 'modules\'
+ let g:modules_folder = 'modules\\'
 else
   let g:modules_folder = 'modules/'
 endif
@@ -19,9 +19,9 @@ endfunction
 
 " Load custom modules
 call LoadCustomModule( 'packages' )
+call LoadCustomModule( 'ui' )
 call LoadCustomModule( 'spacevim' )
 call LoadCustomModule( 'bindings' )
-call LoadCustomModule( 'ui' )
 call LoadCustomModule( 'javascript' )
 
 let g:mta_use_matchparen_group = 1

@@ -16,9 +16,10 @@ let g:prettier#config#parser = 'flow'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js Prettier
 
-" Typescript info
+" TSS info
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_javascript_support = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_shortest_import_path = 1
-
+autocmd FileType typescript, javascript TsuquyomiStartServer

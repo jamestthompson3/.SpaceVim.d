@@ -26,7 +26,7 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " General UI
 let g:spacevim_colorscheme_bg = 'dark'
-let g:spacevim_guifont = 'PragmataPro 16'
+let g:spacevim_guifont = 'Dejavu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT'
 let g:spacevim_colorscheme = 'Oceanicnext'
 let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_custom_color_palette =  [
