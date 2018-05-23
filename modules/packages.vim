@@ -17,7 +17,8 @@ let g:spacevim_custom_plugins = [
   \ ['mxw/vim-jsx'],
   \ ['wakatime/vim-wakatime'],
   \ ['mhartington/oceanic-next'],
-  \ ['pangloss/vim-javascript']
+  \ ['pangloss/vim-javascript'],
+  \ ['w0rp/ale']
 \ ]
 
 

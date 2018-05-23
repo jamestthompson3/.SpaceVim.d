@@ -40,18 +40,19 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \}
+
+let g:ale_sign_error = '💀'
+let g:ale_sign_warning = '😒'
+
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint')
 endif
 if executable('vint')
     call add(g:neomake_vim_enabled_makers, 'vint')
 endif
-if has('python3')
-    let g:ctrlp_map = ''
-    nnoremap <silent> <C-p> :Denite file_rec<CR>
-endif
+
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
 
@@ -68,14 +69,12 @@ endfunction
 set statusline=%{LinterStatus()}
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
-let g:spacevim_enabled_ale = 1
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-set statusline=%{LinterStatus()}
 " formater
 let g:neoformat_try_formatprg = 1
 

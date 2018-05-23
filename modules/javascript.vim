@@ -22,4 +22,7 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:tsuquyomi_javascript_support = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:tsuquyomi_shortest_import_path = 1
-autocmd FileType typescript, javascript TsuquyomiStartServer
+" autocmd FileType typescript, javascript TsuquyomiStartServer
+" let g:flow#autoclose =  1
+" let g:flow#errjmp = 1
+" let g:flow#timeout = 8
