@@ -28,7 +28,7 @@ call SpaceVim#layers#load('shell',
 call SpaceVim#layers#load('tools')
 
 let g:spacevim_enable_debug = 1
-let g:deoplete#auto_complete_delay = 150
+"let g:deoplete#auto_complete_delay = 150
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_statusline_display_mode = 1
 let g:spacevim_enable_os_fileformat_icon = 1

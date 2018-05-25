@@ -69,6 +69,7 @@ let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:airline#extensions#ale#enabled = 1
