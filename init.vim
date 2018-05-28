@@ -38,11 +38,16 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \}
 
 let g:ale_sign_error = '💩'
 let g:ale_sign_warning = '⚡'
+
+let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --parser flow --semi false --print-width 100'
 
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint')

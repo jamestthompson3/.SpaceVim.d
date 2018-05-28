@@ -14,9 +14,7 @@ call SpaceVim#layers#load('lang#xml')
 call SpaceVim#layers#load('lang#html')
 call SpaceVim#layers#load('lsp',
     \ {
-    \ 'filetypes' : ['python',
-                   \ 'javascript',
-                   \ ],
+    \ 'filetypes' : ['javascript'],
     \ }
 \ )
 call SpaceVim#layers#load('shell',

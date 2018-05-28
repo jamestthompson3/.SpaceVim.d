@@ -1,20 +1,20 @@
 """""""""""""" JS stuff """"""""""""""""""""""
 let g:jsx_ext_required = 0
 " max line lengh that prettier will wrap on
-let g:prettier#config#print_width = 100 
+" let g:prettier#config#print_width = 100
 " print semicolons
-let g:prettier#config#semi = 'false'
+" let g:prettier#config#semi = 'false'
 " single quotes over double quotes
-let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#single_quote = 'true'
 " put > on the last line instead of new line
-let g:prettier#config#jsx_bracket_same_line = 'true'
+" let g:prettier#config#jsx_bracket_same_line = 'true'
 " none|es5|all
-let g:prettier#config#trailing_comma = 'none'
+" let g:prettier#config#trailing_comma = 'none'
 " flow|babylon|typescript|postcss
-let g:prettier#config#parser = 'flow'
+" let g:prettier#config#parser = 'flow'
 " prettier on save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js Prettier
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js Prettier
 
 " Syntax Highlighting
 let g:vim_jsx_pretty_colorful_config = 1
