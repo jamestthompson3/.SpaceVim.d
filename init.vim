@@ -38,7 +38,8 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow'],
+\   'javascript': ['eslint', 'flow', 'tsserver'],
+\   'python': ['flaxe8', 'pylint']
 \}
 
 let g:ale_sign_error = '💩'
@@ -46,8 +47,14 @@ let g:ale_sign_warning = '⚡'
 
 let g:ale_fixers = {'javascript': ['prettier']}
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --parser flow --semi false --print-width 100'
+let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_lint_on_text_changed = 'never' " Slows down things if it's always linting
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
 
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint')
@@ -55,30 +62,8 @@ endif
 if executable('vint')
     call add(g:neomake_vim_enabled_makers, 'vint')
 endif
-
-" function! LinterStatus() abort
-    " let l:counts = ale#statusline#Count(bufnr(''))
-"
-    " let l:all_errors = l:counts.error + l:counts.style_error
-    " let l:all_non_errors = l:counts.total - l:all_errors
-"
-    " return l:counts.total == 0 ? 'OK' : printf(
-    " \   '%dW %dE',
-    " \   all_non_errors,
-    " \   all_errors
-    " \)
-" endfunction
-
-" set statusline=%{LinterStatus()}
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
-let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" formater
-let g:neoformat_try_formatprg = 1
 
