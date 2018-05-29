@@ -1,5 +1,35 @@
 " Prevent ALE from complaining
 let g:ale_emit_conflict_warnings = 0
+call SpaceVim#layers#load('incsearch')
+call SpaceVim#layers#load('colorscheme')
+call SpaceVim#layers#load('checkers')
+call SpaceVim#layers#load('leaderf')
+call SpaceVim#layers#load('autocomplete')
+call SpaceVim#layers#load('lang#typescript')
+call SpaceVim#layers#load('lang#javascript')
+call SpaceVim#layers#load('lang#python')
+call SpaceVim#layers#load('lang#markdown')
+call SpaceVim#layers#load('lang#git')
+call SpaceVim#layers#load('lang#VersionControl')
+call SpaceVim#layers#load('lang#vim')
+call SpaceVim#layers#load('lang#xml')
+call SpaceVim#layers#load('lang#html')
+call SpaceVim#layers#load('lsp',
+    \ {
+    \ 'filetypes' : ['python'],
+    \ }
+\ )
+call SpaceVim#layers#load('tools')
+
+let g:spacevim_enable_debug = 1
+let g:deoplete#auto_complete_delay = 150
+let g:spacevim_autocomplete_method = 'asyncomplete'
+let g:spacevim_enable_tabline_filetype_icon = 0
+let g:spacevim_enable_statusline_display_mode = 1
+let g:spacevim_buffer_index_type = 4 
+let g:spacevim_lint_on_save = 0
+let g:spacevim_windows_index_type = 4
+
 let s:SYSTEM = SpaceVim#api#import('system')
 
 " Create function to manage things in a semi-sane way
@@ -18,7 +48,6 @@ endfunction
 " Load custom modules
 call LoadCustomModule( 'packages' )
 call LoadCustomModule( 'ui' )
-call LoadCustomModule( 'spacevim' )
 call LoadCustomModule( 'bindings' )
 call LoadCustomModule( 'javascript' )
 
@@ -38,7 +67,7 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow', 'tsserver'],
+\   'javascript': ['eslint', 'flow'],
 \   'python': ['flaxe8', 'pylint']
 \}
 
@@ -52,7 +81,7 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --parser flow --semi false --print-width 100'
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-let g:ale_lint_on_text_changed = 'never' " Slows down things if it's always linting
+let g:ale_lint_on_text_changed = 'normal' " Slows down things if it's always linting
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 
