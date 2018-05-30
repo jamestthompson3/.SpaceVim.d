@@ -27,8 +27,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " General UI
 let g:spacevim_colorscheme_bg = 'dark'
 let g:enable_italic_font = 1
+let g:enable_bold_font = 1
 let g:spacevim_guifont = 'Dejavu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT'
-let g:spacevim_colorscheme = 'hybrid_material'
+let g:spacevim_colorscheme = 'hybrid_reverse'
 " let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_custom_color_palette =  [
                 \ ['#d8dee9', '#0d61ac', 189, 25],
