@@ -6,7 +6,6 @@ call SpaceVim#layers#load('checkers')
 call SpaceVim#layers#load('leaderf')
 call SpaceVim#layers#load('autocomplete')
 call SpaceVim#layers#load('lang#typescript')
-call SpaceVim#layers#load('lang#javascript')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#markdown')
 call SpaceVim#layers#load('lang#git')
@@ -14,19 +13,15 @@ call SpaceVim#layers#load('lang#VersionControl')
 call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('lang#xml')
 call SpaceVim#layers#load('lang#html')
-" call SpaceVim#layers#load('lsp',
-    " \ {
-    " \ 'filetypes' : ['python'],
-    " \ }
-" \ )
 call SpaceVim#layers#load('tools')
 
+set renderoptions=type:directx
 let g:spacevim_enable_debug = 1
 let g:deoplete#auto_complete_delay = 150
 let g:spacevim_autocomplete_method = 'asyncomplete'
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_statusline_display_mode = 1
-let g:spacevim_buffer_index_type = 4 
+let g:spacevim_buffer_index_type = 4
 let g:spacevim_lint_on_save = 0
 let g:spacevim_windows_index_type = 4
 
@@ -67,16 +62,19 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow'],
-\   'python': ['flaxe8', 'pylint']
+\   'javascript': ['eslint'],
+\   'python': ['flaxe8', 'pylint'],
+\   'rust': ['rls', 'rustfmt'],
+\   'json': ['fixjson', 'jsonlint']
 \}
 
 let g:ale_sign_error = '💩'
-let g:ale_sign_warning = '⚡'
+let g:ale_sign_warning = '⚡️'
 
 let g:ale_fixers = {'javascript': ['prettier']}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+" let g:ale_javascript_flow_use_respect_pragma = 0
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --parser flow --semi false --print-width 100'
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']

@@ -19,6 +19,12 @@ let g:spacevim_custom_plugins = [
   \ ['styled-components/vim-styled-components'],
   \ ['maxmellon/vim-jsx-pretty'],
   \ ['steelsojka/deoplete-flow'],
+  \['neoclide/vim-jsx-improve', { 'on_ft': 'javascript' }],
+  \ ['othree/es.next.syntax.vim', { 'on_ft': 'javascript' }],
+  \ ['othree/javascript-libraries-syntax.vim', {
+  \ 'on_ft': ['javascript', 'coffee', 'ls', 'typescript'] }],
+  \ ['othree/yajs.vim', { 'on_ft': 'javascript' }],
+  \ ['heavenshell/vim-jsdoc', { 'on_cmd': 'JsDoc' }],
   \ ['w0rp/ale']
 \ ]
 
