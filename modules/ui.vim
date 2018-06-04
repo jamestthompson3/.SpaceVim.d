@@ -29,8 +29,10 @@ set nonumber norelativenumber
 let g:spacevim_colorscheme_bg = 'dark'
 let g:enable_italic_font = 1
 let g:enable_bold_font = 1
+let g:enable_guicolors = 1
 let g:spacevim_guifont = 'Fira_Code_Light:h10:cANSI:qDRAFT'
 let g:spacevim_colorscheme = 'hybrid_reverse'
+let g:statusline_unicode_symbols = 0
 " let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_custom_color_palette =  [
                 \ ['#d8dee9', '#0d61ac', 189, 25],

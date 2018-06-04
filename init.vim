@@ -17,8 +17,7 @@ call SpaceVim#layers#load('tools')
 
 set renderoptions=type:directx
 let g:spacevim_enable_debug = 1
-let g:deoplete#auto_complete_delay = 150
-let g:spacevim_autocomplete_method = 'asyncomplete'
+let g:spacevim_autocomplete_method = 'neocomplete'
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_statusline_display_mode = 1
 let g:spacevim_buffer_index_type = 4
@@ -62,10 +61,11 @@ set breakindent
 
 " Linting
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'flow'],
 \   'python': ['flaxe8', 'pylint'],
 \   'rust': ['rls', 'rustfmt'],
-\   'json': ['fixjson', 'jsonlint']
+\   'json': ['fixjson', 'jsonlint'],
+\   'vim': ['vint']
 \}
 
 let g:ale_sign_error = '💩'
@@ -74,7 +74,6 @@ let g:ale_sign_warning = '⚡️'
 let g:ale_fixers = {'javascript': ['prettier']}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
-" let g:ale_javascript_flow_use_respect_pragma = 0
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma none --parser flow --semi false --print-width 100'
 let g:ale_statusline_format = ['{%d} error(s)', '{%d} warning(s)', '']
@@ -82,6 +81,8 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_lint_on_text_changed = 'never' " Slows down things if it's always linting
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
+let g:ale_linters_explicit = 1
+let g:ale_open_list = 1
 
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint')
@@ -91,6 +92,5 @@ if executable('vint')
 endif
 let g:clang2_placeholder_next = ''
 let g:clang2_placeholder_prev = ''
-let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
