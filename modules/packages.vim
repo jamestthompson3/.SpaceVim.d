@@ -8,17 +8,15 @@ let g:spacevim_disabled_plugins=[
 
 " If you want to add some custom plugins, use these options:
 let g:spacevim_custom_plugins = [
-  \ ['Quramy/vim-js-pretty-template'],
+  \ ['Quramy/vim-js-pretty-template', { 'on_ft': 'javascript' }],
   \ ['sbdchd/neoformat'],
   \ ['Quramy/Tsuquyomi'],
-  \ ['prettier/vim-prettier'],
   \ ['mattn/emmet-vim'],
   \ ['wakatime/vim-wakatime'],
   \ ['pangloss/vim-javascript'],
   \ ['kristijanhusak/vim-hybrid-material'],
-  \ ['styled-components/vim-styled-components'],
-  \ ['maxmellon/vim-jsx-pretty'],
-  \ ['steelsojka/deoplete-flow'],
+  \ ['styled-components/vim-styled-components', { 'on_ft': 'javascript' }],
+  \ ['maxmellon/vim-jsx-pretty', { 'on_ft': 'javascript' }],
   \['neoclide/vim-jsx-improve', { 'on_ft': 'javascript' }],
   \ ['othree/es.next.syntax.vim', { 'on_ft': 'javascript' }],
   \ ['othree/javascript-libraries-syntax.vim', {

@@ -2,14 +2,11 @@
 let g:ale_emit_conflict_warnings = 0
 call SpaceVim#layers#load('incsearch')
 call SpaceVim#layers#load('colorscheme')
-call SpaceVim#layers#load('checkers')
 call SpaceVim#layers#load('leaderf')
 call SpaceVim#layers#load('autocomplete')
 call SpaceVim#layers#load('lang#typescript')
 call SpaceVim#layers#load('lang#python')
 call SpaceVim#layers#load('lang#markdown')
-call SpaceVim#layers#load('lang#git')
-call SpaceVim#layers#load('lang#VersionControl')
 call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('lang#xml')
 call SpaceVim#layers#load('lang#html')
@@ -21,7 +18,6 @@ let g:spacevim_autocomplete_method = 'neocomplete'
 let g:spacevim_enable_tabline_filetype_icon = 0
 let g:spacevim_enable_statusline_display_mode = 1
 let g:spacevim_buffer_index_type = 4
-let g:spacevim_lint_on_save = 0
 let g:spacevim_windows_index_type = 4
 
 let s:SYSTEM = SpaceVim#api#import('system')
@@ -84,13 +80,5 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_linters_explicit = 1
 let g:ale_open_list = 1
 
-if executable('vimlint')
-    call add(g:neomake_vim_enabled_makers, 'vimlint')
-endif
-if executable('vint')
-    call add(g:neomake_vim_enabled_makers, 'vint')
-endif
-let g:clang2_placeholder_next = ''
-let g:clang2_placeholder_prev = ''
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
