@@ -1,7 +1,10 @@
 " Prevent ALE from complaining
+set encoding=UTF-8
 let g:ale_emit_conflict_warnings = 0
 call SpaceVim#layers#load('incsearch')
 call SpaceVim#layers#load('colorscheme')
+call SpaceVim#layers#disable('checkers')
+" call SpaceVim#layers#load('VersionControl')
 call SpaceVim#layers#load('leaderf')
 call SpaceVim#layers#load('autocomplete')
 call SpaceVim#layers#load('lang#typescript')
@@ -15,11 +18,8 @@ call SpaceVim#layers#load('tools')
 set renderoptions=type:directx
 let g:spacevim_enable_debug = 1
 let g:spacevim_autocomplete_method = 'neocomplete'
-let g:spacevim_enable_tabline_filetype_icon = 0
-let g:spacevim_enable_statusline_display_mode = 1
-let g:spacevim_buffer_index_type = 4
-let g:spacevim_windows_index_type = 4
-
+let g:spacevim_enable_neomake = 0 
+let g:spacevim_enable_syntastic = 0 
 let s:SYSTEM = SpaceVim#api#import('system')
 
 " Create function to manage things in a semi-sane way
@@ -55,6 +55,9 @@ let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.html.erb,*.md'
 " ensure that HTML wraps appropriately
 set breakindent
 
+" Version Control
+let g:signify_disable_by_default = 1 
+let g:signify_sign_show_text = 0
 " Linting
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
@@ -77,8 +80,7 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_lint_on_text_changed = 'never' " Slows down things if it's always linting
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_linters_explicit = 1
-let g:ale_open_list = 1
+" let g:ale_open_list = 1
 
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 

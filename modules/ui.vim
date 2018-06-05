@@ -30,9 +30,29 @@ let g:spacevim_colorscheme_bg = 'dark'
 let g:enable_italic_font = 1
 let g:enable_bold_font = 1
 let g:enable_guicolors = 1
-let g:spacevim_guifont = 'Fira_Code_Light:h10:cANSI:qDRAFT'
+let g:spacevim_guifont = 'Fira_Code:h10:cANSI:qDRAFT'
 let g:spacevim_colorscheme = 'hybrid_reverse'
-let g:statusline_unicode_symbols = 0
+let g:statusline_unicode_symbols = 1
+let g:spacevim_statusline_left_sections = ['filename', 'major mode', 'version control info' ]
+let g:spacevim_enable_tabline_filetype_icon = 1 
+let g:spacevim_enable_statusline_display_mode = 1
+let g:spacevim_buffer_index_type = 4
+let g:spacevim_windows_index_type = 4
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable = 1
+" let g:spacevim_filetype_icons['md'] = ''
+
+""
+" Define the right section of statusline in active windows. By default:
+" >
+"   g:spacevim_statusline_right_sections =
+"     \ [
+"     \ 'fileformat',
+"     \ 'cursorpos',
+"     \ 'percentage'
+"     \ ]
+" <
+let g:spacevim_statusline_right_sections = []
 " let g:spacevim_statusline_separator = 'arrow'
 let g:spacevim_custom_color_palette =  [
                 \ ['#d8dee9', '#0d61ac', 189, 25],

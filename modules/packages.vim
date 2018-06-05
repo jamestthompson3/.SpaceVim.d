@@ -3,6 +3,7 @@
 let g:spacevim_disabled_plugins=[
 \ ['ternjs/tern_for_vim'],
 \ ['maksimr/vim-jsbeautify'],
+\ ['mhinz/vim-signify'],
 \ ['Galooshi/vim-import-js']
 \ ]
 
@@ -13,7 +14,7 @@ let g:spacevim_custom_plugins = [
   \ ['Quramy/Tsuquyomi'],
   \ ['mattn/emmet-vim'],
   \ ['wakatime/vim-wakatime'],
-  \ ['pangloss/vim-javascript'],
+  \ ['pangloss/vim-javascript', { 'on_ft': 'javascript'}],
   \ ['kristijanhusak/vim-hybrid-material'],
   \ ['styled-components/vim-styled-components', { 'on_ft': 'javascript' }],
   \ ['maxmellon/vim-jsx-pretty', { 'on_ft': 'javascript' }],
@@ -23,6 +24,7 @@ let g:spacevim_custom_plugins = [
   \ 'on_ft': ['javascript', 'coffee', 'ls', 'typescript'] }],
   \ ['othree/yajs.vim', { 'on_ft': 'javascript' }],
   \ ['heavenshell/vim-jsdoc', { 'on_cmd': 'JsDoc' }],
-  \ ['w0rp/ale']
-\ ]
+  \ ['w0rp/ale'],
+  \ ['ryanoasis/vim-devicons']
+  \ ]
 
